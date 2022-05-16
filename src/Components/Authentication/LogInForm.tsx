@@ -55,7 +55,11 @@ const LogInForm = () => {
       >
         Log-In
       </button>
-      <button className="btn btn-outline-pri form-btn smooth-square-radius">
+      <button className="btn btn-outline-pri form-btn smooth-square-radius" onClick={(e) => {
+          e.preventDefault();
+           
+          logInHandler({password:"123456789",email:"guptaakshat105@gmail.com"});
+        }}>
         Test Credentials
       </button>
       <Link to="/authentication/signUp" className="link-btn">
