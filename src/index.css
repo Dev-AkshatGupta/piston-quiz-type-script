@@ -1,13 +1,209 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root{
+    --PRIMARY:rgb(255,255,255);
+    /* --secondary-color:; */
+    --ACCENT-COLOR:#fab75f;
+    --ACCENT-COLOR-LIGHT:#fed7aa;
+    --GREY:#6c757d;
+    --GREY-DARK:#343a40;
+    --PURE-BLACK:#212529;
+    --DARK-BLACK:#000000;
+    --PURE-WHITE:#ffffff;
+    --BREAKPOINT-SML: 576px;
+    --BREAKPOINT-MED: 768px;
+    --BREAKPOINT-LRG: 992px;
+    --BREAKPOINT-XL: 1200px;
+    --GREY-LIGHT:#D3D3D3;
+    --SLATE-50:#f8fafc;
+    --STONE-100:#F5F5F4;
+    --VIOLET-300:#c4b5fd;
+    --VIOLET-100:#ede9fe;
+    --VIOLET-50:#f5f3ff;
+
+}
+/* Default stylings and resetting */
+
+body{
+background-color: var(--VIOLET-50);
+}
+a{
+    text-decoration: none;
+    color:var(--DARK-BLACK);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Utility Classes */
+
+
+/* text utility class */
+.text-accent{
+    color: var(--ACCENT-COLOR);
 }
+.text-black{
+    color:var(--PURE-BLACK);
+}
+.text-shadow {
+    text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+}
+.text-white{
+    color: var(--PURE-WHITE);
+}
+.text-2{
+    font-size: 2rem;
+}
+.text-p{
+    font-size: 1.6rem;
+}
+
+
+
+
+
+/* display related utility classes */
+.display-flex{
+    display: flex;
+}
+.flex-center-space-betw{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flex-center-space-even{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.flex-end-space-betw{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.flex-wrap{
+    flex-wrap: wrap;
+}
+.flex-column-center-spaced-even{
+    display: flex;
+    flex-direction:column ;
+    justify-content: space-evenly;
+    align-items:center;
+
+}
+
+
+/* width of the div */
+.width-100{
+    width: 100%;
+}
+.width-150{
+    width: 150rem;
+}
+.width-30{
+    width: 30rem;
+}
+.gap{
+    gap: 1rem;
+}
+
+
+
+
+
+
+
+
+
+/* border radius and the padding */
+
+.border-r-3{
+    border-radius:3rem;
+}
+
+.padding-2{
+    padding:2rem;
+}
+.border-2-violet{
+    border: solid 2px var(--VIOLET-300);
+}
+.no-border{
+    border:none;
+}
+
+
+
+
+
+/* background utilities */
+.bg-c-black{
+    background-color: var(--DARK-BLACK);
+}
+.bg-c-red{
+    background: var(--ERROR-RED-DARK);
+}
+.bg-c-green{
+    background:var(--SUCCESS-GREEN-DARK);
+}
+.bg-c-accent{
+    background: var(--ACCENT-COLOR);
+}
+.bg-c-violet-100{
+    background-color: var(--VIOLET-100);
+}
+
+/* dividers */
+.divider-2{
+    height: 2px;
+    background-color: var(--GREY-LIGHT);
+    width: 100%;
+}
+
+
+
+
+/* Position Utilities */
+.position-relative{
+    position: relative;
+}
+
+/* Heights */
+.height-80vh{
+height: 80vh;
+}
+

@@ -1,0 +1,13 @@
+.section-div{
+   width:45rem; 
+   border-radius: 3rem;
+}
+.card-quiz-image{
+    height: 24.8rem;
+    width: 31rem;
+}
+.card-categories-image{
+    height:19.2rem;
+    width: 19.2rem;
+    margin-left: 1rem;
+}
