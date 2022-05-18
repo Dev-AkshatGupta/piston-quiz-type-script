@@ -1,0 +1,22 @@
+.text-question {
+    font-weight: 800;
+    font-size: 3rem;
+}
+
+.text-ques-options {
+    font-size: 1.6rem;
+    border: solid 2px var(--VIOLET-300);
+    border-radius: 3rem;
+    padding: 1rem;
+    transition: all .06s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.text-ques-options:hover,
+.text-ques-options:focus {
+    background: var(--ACCENT-COLOR-LIGHT);
+    transform: scale(1.06);
+}

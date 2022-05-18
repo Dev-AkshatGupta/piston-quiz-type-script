@@ -1,0 +1,42 @@
+.component-navigation {
+    background-color: #C9C3E6;
+    height: 8rem;
+    width: 100%;
+    box-shadow: 0 2px 3px -1px rgb(0 0 0 / 10%);
+
+}
+
+.navigation-pri-part {
+    display: flex;
+}
+
+.logo-container {
+    margin-right: 1.5rem;
+    margin-left: 3rem;
+}
+
+.navigation-pri-part h1 {
+    font-size: 5rem;
+    margin: 0;
+    align-self: flex-end;
+}
+
+.navigation-end-part {
+    align-self: flex-end;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+}
+
+.nav-btn-icon {
+    font-size: 3rem;
+    transition: all ease-in .3s;
+}
+
+
+.nav-btn-icon+.nav-btn-icon {
+    margin-left: 1rem;
+}
+
+.nav-btn-icon:hover {
+    color: var(--ERROR-RED-DARK);
+}
