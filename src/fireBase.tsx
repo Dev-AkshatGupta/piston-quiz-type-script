@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import {getAuth} from "firebase/auth";
-import {getFirestore} from "@firebase/firestore";
+import {doc, getDoc, getFirestore,where,collection} from "@firebase/firestore";
 type FireBaseConfig={
     apiKey:string;
     authDomain:string;
@@ -19,9 +19,20 @@ const firebaseConfig:FireBaseConfig = {
   appId: "1:58190409157:web:4144751306c1297a98afac",
   measurementId: "G-NEFKXBHXXC"
 }; 
-
-
 const app = initializeApp(firebaseConfig);
 export const db=getFirestore(app);
+
+// For  collection categories
+const docRef = doc(db,"CategoryOfQuiz","HistoryOFAutomobiles");
+// For collecting questions in categories
+const getDocSnap=async ()=>{
+const docSnap = await getDoc(docRef);
+if(docSnap.exists()){
+  console.log(docSnap.data());
+  return docSnap}
+else return null
+}
+
+getDocSnap();
 export const auth=getAuth(app);
 export default app;

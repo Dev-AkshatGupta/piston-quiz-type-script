@@ -1,6 +1,6 @@
 import {NavigationBar} from "./Components/index"; 
 import QuestionPage from "./Pages/QuestionsPage/QuestionPage";
-// import LandingPage from "./Pages/LandingPage/LandingPage";
+import LandingPage from "./Pages/LandingPage/LandingPage";
 import AuthenticationPage from "./Pages/AuthenticationPage/AuthenticationPage";
 import {db,auth} from "./fireBase";
 import {Routes,Route} from "react-router-dom";
@@ -18,7 +18,7 @@ function App() {
    </Route>
    <Route path="/questions" element={<QuestionPage/>}/>
 </Routes> 
-{/* <LandingPage/>
+ <LandingPage/>
 {/* <QuestionPage/> */}
     </div>
   );

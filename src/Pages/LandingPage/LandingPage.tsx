@@ -1,18 +1,18 @@
-import  "landing-page.css";
-
+import  "./landing-page.css";
+import {Link} from "react-router-dom";
 const LandingPage = () => {
   return (
     <>
      <main className="display-flex ">
-        <img src={require("./../Assets/undraw_searching_p-5-ux.svg")} alt="Beautiful Women" className="images-container padding-2"/>
+        <img src={"https://drive.google.com/uc?export=view&id=1C5fSMxIVWhBtfrpRFJAixsejOCRdqBKy"} alt="Beautiful Women" className="images-container padding-2"/>
         <section className="flex-center width-100 main-section ">
             <div className="section-div border-r-3 padding-2 flex-column-center-spaced-even">
                 <h1 className="text-center">Piston <span className="text-accent">Quiz</span></h1>
                 <p className="text-p">Hey everyone If Cars and Bikes are what excites you and you want to understand how
-                    marketing engineering designing and colors shapes automobile market . Then this is the place for it
+                    marketing engineering designing and colors  and shapes makes the automobile your beloved automobile . Then this is the place for it
                     to learn all things in fun way. </p>
-                <a href="#categories-tiles" className="btn  text-2 text-black ">
-                    let's start Quiz </a>
+                <Link to="/" className="btn  text-2 text-black ">
+                    let's start Quiz </Link>
             </div>
         </section>
     </main>
@@ -136,3 +136,8 @@ const LandingPage = () => {
 }
 
 export default LandingPage
+
+
+// https://drive.google.com/uc?export=view&id=1C5fSMxIVWhBtfrpRFJAixsejOCRdqBKy
+
+// https://drive.google.com/file/d/1C5fSMxIVWhBtfrpRFJAixsejOCRdqBKy/view?usp=sharing
