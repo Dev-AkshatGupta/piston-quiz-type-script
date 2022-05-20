@@ -24,8 +24,8 @@ const CategoryPage = () => {
           description: string;
           image: string;
           title: string;
-        }) => (
-          <Link to={`/${category}/${title.split(" ").join("")}`}>
+        },i:number) => (
+          <Link to={`/${category}/${i}`} key={title}>
               <QuestionCard description={description} image={image} title={title} />
           </Link>
         )

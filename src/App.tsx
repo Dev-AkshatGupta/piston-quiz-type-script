@@ -13,7 +13,9 @@ function App() {
       <NavigationBar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/:category" element={<CategoryPage />} />
+        <Route path="/:category" element={<CategoryPage />}>
+          <Route path=":quiz" element={<QuestionPage />} />
+        </Route>
         <Route path="/authentication" element={<AuthenticationPage />}>
           <Route index element={<LogInForm />} />
           <Route path="signUp" element={<SignUpForm />} />
