@@ -7,5 +7,6 @@ export type InitialState={
 }
 export type Details={
 email:string,
-password:string
+password:string,
+
 }

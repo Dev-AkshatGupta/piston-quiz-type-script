@@ -8,9 +8,14 @@ import {
   collection,
 } from "@firebase/firestore";
 import { db } from "../../fireBase";
-const initialState: { categories: any; quizes: any } = {
+const initialState: {
+  categories: any;
+  quizes: any;
+  resultStore: { question: string; answer: string; optionSelected: String }[];
+} = {
   categories: [],
   quizes: [],
+  resultStore: [],
 };
 export const getCategories = createAsyncThunk(
   "functionalities/getCategories",
@@ -29,8 +34,8 @@ export const getACategoryQuizes = createAsyncThunk(
     try {
       const docRef = doc(db, "CategoryOfQuiz", `${category}`);
       const docSnap = await getDoc(docRef);
-      const docSnapData= docSnap.data();
-      return [docSnapData?.quiz1,docSnapData?.quiz2];
+      const docSnapData = docSnap.data();
+      return [docSnapData?.quiz1, docSnapData?.quiz2];
     } catch (error) {
       console.log(error);
     }
@@ -39,7 +44,22 @@ export const getACategoryQuizes = createAsyncThunk(
 const functionalitiesSlice = createSlice({
   name: "functionalities",
   initialState,
-  reducers: {},
+  reducers: {
+    resultStoreUpdate(state, action) {
+      console.log(action.payload);
+      const newArr = action.payload.map((item: any, i: number) => ({
+        ...item[`Question${i + 1}`],
+        optionSelected: "",
+      }));
+      state.resultStore = newArr;
+    },
+    updateResultStore(state, action) {
+      // question with optionSelected
+      console.log(action.payload);
+      const indexOfQuestionInStore=state.resultStore.findIndex(item=>item.question===action.payload.question);
+      state.resultStore[indexOfQuestionInStore].optionSelected=action.payload.optionSelected;
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(getCategories.fulfilled, (state, action) => {
@@ -50,4 +70,6 @@ const functionalitiesSlice = createSlice({
       });
   },
 });
+export const { resultStoreUpdate, updateResultStore } =
+  functionalitiesSlice.actions;
 export default functionalitiesSlice.reducer;
