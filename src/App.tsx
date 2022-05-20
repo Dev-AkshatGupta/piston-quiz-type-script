@@ -7,6 +7,7 @@ import { db, auth } from "./fireBase";
 import { Routes, Route } from "react-router-dom";
 import LogInForm from "Components/Authentication/LogInForm";
 import SignUpForm from "Components/Authentication/SignUpForm";
+import ResultsPage from "Pages/ResultsPage/ResultsPage";
 function App() {
   return (
     <div className="App">
@@ -20,6 +21,7 @@ function App() {
           <Route path="signUp" element={<SignUpForm />} />
         </Route>
         <Route path="/questions" element={<QuestionPage />} />
+        <Route path="/result" element={<ResultsPage />} />
       </Routes>
     </div>
   );

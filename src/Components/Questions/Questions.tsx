@@ -14,7 +14,7 @@ const Questions = ({ options, question, ques, answer }: QuestionsData) => {
   const dispatch = useAppDispatch();
 
   return (
-    <>
+    <div>
       <div>
         <p className="text-question">
           {ques}) {question}
@@ -36,7 +36,7 @@ const Questions = ({ options, question, ques, answer }: QuestionsData) => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

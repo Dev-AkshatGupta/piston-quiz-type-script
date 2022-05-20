@@ -1,5 +1,5 @@
 import { useAppSelector ,useAppDispatch} from "./../../Redux/hooks";
-import { Outlet, useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import "./QuestionPage.css";
 import Questions from "Components/Questions/Questions";
 import {useEffect} from "react";
@@ -28,6 +28,7 @@ const QuestionPage = () => {
               key={quiz[`Question${i + 1}`][`question`]}
             />
           ))}
+          <Link to="/result">Submit Quiz</Link>
       </section>
  
   );

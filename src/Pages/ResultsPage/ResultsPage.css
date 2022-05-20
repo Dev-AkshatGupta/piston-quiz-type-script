@@ -1,0 +1,23 @@
+.car-icon-list>li {
+  list-style: none;
+
+}
+
+.car-icon-list>li>i {
+  margin-right: 1rem;
+  font-size: 2rem;
+}
+
+
+/* Results styles */
+.text-results{
+  font-size: 1.6rem;
+  border: solid 2px var(--VIOLET-300);
+  border-radius: 3rem;
+  padding: 1rem;
+  transition: all .06s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

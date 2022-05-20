@@ -11,11 +11,13 @@ import { db } from "../../fireBase";
 const initialState: {
   categories: any;
   quizes: any;
+  result: number;
   resultStore: { question: string; answer: string; optionSelected: String }[];
 } = {
   categories: [],
   quizes: [],
   resultStore: [],
+  result: 0,
 };
 export const getCategories = createAsyncThunk(
   "functionalities/getCategories",
@@ -46,7 +48,6 @@ const functionalitiesSlice = createSlice({
   initialState,
   reducers: {
     resultStoreUpdate(state, action) {
-      console.log(action.payload);
       const newArr = action.payload.map((item: any, i: number) => ({
         ...item[`Question${i + 1}`],
         optionSelected: "",
@@ -55,9 +56,25 @@ const functionalitiesSlice = createSlice({
     },
     updateResultStore(state, action) {
       // question with optionSelected
-      console.log(action.payload);
-      const indexOfQuestionInStore=state.resultStore.findIndex(item=>item.question===action.payload.question);
-      state.resultStore[indexOfQuestionInStore].optionSelected=action.payload.optionSelected;
+
+      const indexOfQuestionInStore = state.resultStore.findIndex(
+        (item) => item.question === action.payload.question
+      );
+      state.resultStore[indexOfQuestionInStore].optionSelected =
+        action.payload.optionSelected;
+    },
+    calculateResult(state){
+    const result=state.resultStore.reduce(
+        (
+          acc:number,
+          curr: any
+        ) => {
+          if(curr.optionSelected.toLowerCase()==curr.answer.toLowerCase()){return acc+=20;}
+          else return acc;
+        },
+        0
+      );
+      state.result = result;
     },
   },
   extraReducers(builder) {
@@ -70,6 +87,6 @@ const functionalitiesSlice = createSlice({
       });
   },
 });
-export const { resultStoreUpdate, updateResultStore } =
+export const { resultStoreUpdate, updateResultStore, calculateResult } =
   functionalitiesSlice.actions;
 export default functionalitiesSlice.reducer;
