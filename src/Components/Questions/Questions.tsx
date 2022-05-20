@@ -1,21 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
+import "./Questions.css";
 type QuestionsData = {
   options: string[];
   question: string;
-  ques:number,
-  answer:string
+  ques: number;
+  answer: string;
 };
-const Questions = ({ options, question,ques,answer }: QuestionsData) => {
+
+const Questions = ({ options, question, ques, answer }: QuestionsData) => {
+  const [selected, setSelected] = useState<string>("");
+
   return (
     <>
       <div>
-        <p className="text-question">{ques}) {question}</p>
+        <p className="text-question">
+          {ques}) {question}
+        </p>
         <div>
-            {options.map(option=><p className="text-ques-options"
-            //  bg-c-green"
-             >
-           { option}
-          </p>)}
+          {options.map((option) => (
+            <p key={option}
+              className={`text-ques-options ${option===selected ? "selected" : null}`}
+              onClick={(e) => {
+                setSelected(e.currentTarget.innerText);
+              }}
+            >
+              {option}
+            </p>
+          ))}
         </div>
       </div>
     </>
