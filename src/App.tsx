@@ -9,24 +9,23 @@ import LogInForm from "Components/Authentication/LogInForm";
 import SignUpForm from "Components/Authentication/SignUpForm";
 import ResultsPage from "Pages/ResultsPage/ResultsPage";
 import PrivateRoute from "Components/CustomRoutes/PrivateRoute";
+import RequireAuth from "Components/CustomRoutes/RequireAuth";
 function App() {
   return (
     <div className="App">
       <NavigationBar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/authentication" element={<AuthenticationPage />}>
+      <Route element={<RequireAuth/>}>  <Route path="/authentication" element={<AuthenticationPage />}>
            <Route index element={<LogInForm />} />
             <Route path="signUp" element={<SignUpForm />} />
-          </Route>
-        {/* <Route element={<PrivateRoute/>}> */}
+          </Route></Route>
+        <Route element={<PrivateRoute/>}>
           <Route path="/:category" element={<CategoryPage />} />
-          <Route path="/:category/:quiz" element={<QuestionPage />} />
-          
-           
+          <Route path="/:category/:quiz" element={<QuestionPage />} />           
           <Route path="/questions" element={<QuestionPage />} />
           <Route path="/result" element={<ResultsPage />} />
-        {/* </Route> */}
+        </Route>
       </Routes>
     </div>
   );

@@ -5,10 +5,10 @@ import { useAppSelector } from "./../../Redux/hooks";
 const PrivateRoute = () => {
   const currentUser = useAppSelector((state) => state.auth.currentUser);
   const location = useLocation();
-  return currentUser ? (
+  return currentUser.uid ? (
     <Outlet />
   ) : (
-    <Navigate to="/" state={{ from: location }} replace />
+    <Navigate to="/authentication" state={{ from: location }} replace />
   );
 };
 
