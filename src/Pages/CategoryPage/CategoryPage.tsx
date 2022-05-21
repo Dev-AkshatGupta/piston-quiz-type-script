@@ -15,7 +15,7 @@ const CategoryPage = () => {
   const quizArr = useAppSelector((state) => state?.functioning?.quizes);
   return (
     <div>
-      <div className="flex-center">
+      <div className="flex-center gap-6 height-80vh">
         {quizArr.map(
           (
             {

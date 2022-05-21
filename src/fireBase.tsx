@@ -7,6 +7,7 @@ import {
   getFirestore,
   where,
   collection,
+  setDoc
 } from "@firebase/firestore";
 type FireBaseConfig = {
   apiKey: string;
@@ -30,6 +31,17 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
 
+export const createUserDocument = async (user:any, details:any) => {
+  if (!user) return;
+ 
+if(doc(db,"users",user.uid)){
+ try{
+  await setDoc(doc(db,"users",user.uid),details)} 
+catch(error){
+  console.log({error})
+} 
+  }
+};
 
 export const auth = getAuth(app);
 export default app;

@@ -17,6 +17,7 @@ const QuestionPage = () => {
     dispatch(resultStoreUpdate(quizArr));
   }, [quizArr[0].Question1.question]);
   return (   
+    <div className="width-100 flex-column-center-spaced-even">
       <section className=" width-150 section-div padding-2  flex-column-center-spaced-even ">
         {quizArr.length !== 0 &&
           quizArr?.map((quiz: any, i: number) => (
@@ -28,9 +29,9 @@ const QuestionPage = () => {
               key={quiz[`Question${i + 1}`][`question`]}
             />
           ))}
-          <Link to="/result">Submit Quiz</Link>
+          <Link to="/result" className="btn btn-outline-pri text-2">Submit Quiz</Link>
       </section>
- 
+ </div>
   );
 };
 

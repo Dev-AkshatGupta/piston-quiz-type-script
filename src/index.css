@@ -141,7 +141,9 @@ a{
 .gap{
     gap: 1rem;
 }
-
+.gap-6{
+    gap:6rem;
+}
 
 
 

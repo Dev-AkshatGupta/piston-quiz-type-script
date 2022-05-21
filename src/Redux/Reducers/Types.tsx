@@ -1,8 +1,5 @@
 export type InitialState={
-    currentUser:{
-        id?:string,
-        name?:string
-    };
+    currentUser:any|null;
     loading:boolean    
 }
 export type Details={
