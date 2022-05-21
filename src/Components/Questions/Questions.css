@@ -1,0 +1,4 @@
+.selected{
+    background: var(--ACCENT-COLOR-LIGHT);
+    transform: scale(1.06);
+}

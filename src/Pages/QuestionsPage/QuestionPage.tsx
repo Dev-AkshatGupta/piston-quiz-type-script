@@ -1,56 +1,38 @@
-
+import { useAppSelector ,useAppDispatch} from "./../../Redux/hooks";
+import { Link, Outlet, useParams } from "react-router-dom";
 import "./QuestionPage.css";
+import Questions from "Components/Questions/Questions";
+import {useEffect} from "react";
+import { resultStoreUpdate } from "./../../Redux/Reducers/FunctioningSlice";
+type QuizParams = {
+  quiz: string;
+};
 const QuestionPage = () => {
-  return (
-    <>
-      <main className=" flex-column-center-spaced-even">
-        <h1>Engine <span className="text-accent">Quiz</span></h1>
+  const { quiz } = useParams<QuizParams>();
+  const quizes = useAppSelector((state) => state?.functioning?.quizes);
+  const quizArr = quizes[Number(quiz)]?.questions;
+  const dispatch=useAppDispatch();
+  Array.from(quizArr);
+    useEffect(() => {
+    dispatch(resultStoreUpdate(quizArr));
+  }, [quizArr[0].Question1.question]);
+  return (   
+    <div className="width-100 flex-column-center-spaced-even">
+      <section className=" width-150 section-div padding-2  flex-column-center-spaced-even ">
+        {quizArr.length !== 0 &&
+          quizArr?.map((quiz: any, i: number) => (
+            <Questions
+              question={quiz[`Question${i + 1}`][`question`]}
+              options={quiz[`Question${i + 1}`][`options`]}
+              ques={i + 1}
+              answer={quiz[`Question${i + 1}`][`answer`]}
+              key={quiz[`Question${i + 1}`][`question`]}
+            />
+          ))}
+          <Link to="/result" className="btn btn-outline-pri text-2">Submit Quiz</Link>
+      </section>
+ </div>
+  );
+};
 
-
-
-        <section className=" width-150 section-div padding-2  flex-column-center-spaced-even ">
-            <div>
-                <p className="text-question">1) Each right answer scores 10 Points</p>
-                <div>
-                    <p className="text-ques-options">Each right answer scores 10 Points</p>
-                    <p className="text-ques-options">Each right answer scores 10 Points</p>
-                    <p className="text-ques-options">Each right answer scores 10 Points</p>
-                    <p className="text-ques-options">Each right answer scores 10 Points</p>
-
-                </div>
-            </div>
-            <div className="divider-2"></div>
-            <div>
-                <p className="text-question">2) Each right answer scores 10 Points</p>
-                <div>
-                    <p className="text-ques-options bg-c-green">Each right answer scores 10 Points</p>
-                    <p className="text-ques-options">Each right answer scores 10 Points</p>
-                    <p className="text-ques-options">Each right answer scores 10 Points</p>
-                    <p className="text-ques-options bg-c-red">Each right answer scores 10 Points</p>
-
-                </div>
-            </div>
-            <div className="divider-2"></div>
-            <div>
-                <p className="text-question">3) Each right answer scores 10 Points</p>
-                <div>
-                    <p className="text-ques-options">Each right answer scores 10 Points</p>
-                    <p className="text-ques-options">Each right answer scores 10 Points</p>
-                    <p className="text-ques-options">Each right answer scores 10 Points</p>
-                    <p className="text-ques-options">Each right answer scores 10 Points</p>
-
-                </div>
-            </div>
-            <div className="divider-2"></div>
-
-
-        </section>
-        <a href="./results.html" className="btn btn-outline-pri text-2">
-            Check Results</a>
-
-    </main> 
-    </>
-  )
-}
-
-export default QuestionPage
+export default QuestionPage;
