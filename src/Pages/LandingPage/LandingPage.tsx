@@ -4,14 +4,18 @@ import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "Redux/hooks";
 import { getCategories } from "../../Redux/Reducers/FunctioningSlice";
 import CategoriesCard from "Components/CategoriesCard/CategoriesCard";
+import QuestionCard from "Components/QuestionCard/QuestionCard";
+import { getACategoryQuizes } from "Redux/Reducers/FunctioningSlice";
 const LandingPage = () => {
-  //   const [categories, setCategories] = useState();
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getCategories());
   }, []);
   const { categories } = useAppSelector((state) => state?.functioning);
-
+  useEffect(() => {
+    dispatch(getACategoryQuizes("HistoryOFAutomobiles"));
+  }, []);
+  const quizArr = useAppSelector((state) => state?.functioning?.quizes);
   return (
     <>
       <main className="display-flex ">
@@ -45,16 +49,17 @@ const LandingPage = () => {
         className=" flex-center-space-even padding-2 flex-wrap gap "
         id="categories-tiles"
       >
-        {categories.map((data:{title:string,description:string,image:string}) => (
-          <Link to={`/${data.title.split(" ").join("")}`} key={data.title}>
-            <CategoriesCard
-              title={data.title}
-              description={data.description}
-              image={data.image}
-            />
-          </Link>
-        ))}
-     
+        {categories.map(
+          (data: { title: string; description: string; image: string }) => (
+            <Link to={`/${data.title.split(" ").join("")}`} key={data.title}>
+              <CategoriesCard
+                title={data.title}
+                description={data.description}
+                image={data.image}
+              />
+            </Link>
+          )
+        )}
       </section>
       <div className="divider-2"></div>
       <h1 className="text-center">
@@ -64,8 +69,15 @@ const LandingPage = () => {
         className=" flex-center-space-even padding-2 flex-wrap gap"
         id="question-tiles"
       >
-      
-      </section>
+        {quizArr.map((quiz: any,i:number) => (
+          <Link to={`/${"HistoryOFAutomobiles"}/${i}`} key={quiz.title}>
+          <QuestionCard
+            description={quiz.description}
+            image={quiz.image}
+            title={quiz.title}
+          /></Link>
+        ))}
+      </section> 
     </>
   );
 };
