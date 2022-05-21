@@ -1,9 +1,5 @@
-import React from 'react'
-import { useLocation } from 'react-router-dom'
 
-const RulesPage = () => {
-const location=useLocation();
-    console.log()
+const RulesPage = ({setDisplay}:{setDisplay:any}) => {
   return (
      <main className="display-flex ">
 
@@ -21,7 +17,7 @@ const location=useLocation();
 
 
                 </ul>
-                <a href="./question-pages.html" className="btn  text-2 text-black border-r-3">
+                <a onClick={()=>{setDisplay((display:boolean)=>!display)}} className="btn  text-2 text-black border-r-3">
                     let's start Quiz </a>
             </div>
         </section>

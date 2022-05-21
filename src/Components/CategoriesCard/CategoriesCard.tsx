@@ -1,4 +1,3 @@
-import React from "react";
 
 type Category={
   description:string,
@@ -7,7 +6,7 @@ type Category={
 }
 const CategoriesCard = ({title,description,image}:Category) => {
   return (
-    <div className="width-30 border-r-3 card-shadow  flex-column-center-spaced-even bg-c-black padding-2">
+    <div className="width-30 border-r-3 card-shadow  flex-column-center-spaced-even bg-c-red padding-2">
       <div className="card-categories-image">
         <img
           src={`${image}`}
