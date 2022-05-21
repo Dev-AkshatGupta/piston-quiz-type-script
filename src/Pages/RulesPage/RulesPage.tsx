@@ -4,7 +4,7 @@ const RulesPage = ({setDisplay}:{setDisplay:any}) => {
      <main className="display-flex ">
 
         <section className="flex-center width-100 main-section ">
-            <img src="../assets/undraw_accept_terms_re_lj38.svg" alt="Beautiful Women"
+            <img src="https://drive.google.com/uc?export=view&id=11dXU7nlS03qN5mGQySTL8GjxNcZGeMGv" alt="Beautiful Women"
                 className="images-container padding-2"/>
             <div className="section-div border-r-3 padding-2  flex-column-center-spaced-even">
                 <h1 className="text-center">Rules and Regulations </h1>

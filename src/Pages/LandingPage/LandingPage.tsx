@@ -37,9 +37,9 @@ const LandingPage = () => {
               shapes makes the automobile your beloved automobile . Then this is
               the place for it to learn all things in fun way.{" "}
             </p>
-            <Link to="/" className="btn  text-2 text-black ">
+            <a href="#question" className="btn  text-2 text-black ">
               let's start Quiz{" "}
-            </Link>
+            </a>
           </div>
         </section>
       </main>
@@ -62,7 +62,7 @@ const LandingPage = () => {
         )}
       </section>
       <div className="divider-2"></div>
-      <h1 className="text-center">
+      <h1 className="text-center" id="questions">
         Trending <span className="text-accent">Quiz</span>
       </h1>
       <section
@@ -84,6 +84,3 @@ const LandingPage = () => {
 
 export default LandingPage;
 
-// https://drive.google.com/uc?export=view&id=1C5fSMxIVWhBtfrpRFJAixsejOCRdqBKy
-
-// https://drive.google.com/file/d/1C5fSMxIVWhBtfrpRFJAixsejOCRdqBKy/view?usp=sharing
