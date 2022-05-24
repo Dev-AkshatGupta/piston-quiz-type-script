@@ -11,6 +11,9 @@ const LogInForm = () => {
     email: "",
     password: "",
   });
+ const passwordRegEx:any =
+    /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
+
   function logInHandler(details:{email:string,password:string}){
 
     dispatch(logIn(details));
