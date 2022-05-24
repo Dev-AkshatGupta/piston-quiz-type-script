@@ -1,22 +1,14 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import {
-  doc,
-  getDoc,
-  getDocs,
-  getFirestore,
-  where,
-  collection,
-  setDoc
-} from "@firebase/firestore";
+import { doc, getFirestore, setDoc } from "@firebase/firestore";
 type FireBaseConfig = {
-  apiKey: string;
-  authDomain: string;
-  projectId: string;
-  storageBucket: string;
-  messagingSenderId: string;
-  appId: string;
-  measurementId: string;
+  apiKey: string|undefined;
+  authDomain: string|undefined;
+  projectId: string|undefined;
+  storageBucket: string|undefined;
+  messagingSenderId: string|undefined;
+  appId: string|undefined;
+  measurementId: string|undefined;
 };
 const firebaseConfig: FireBaseConfig = {
   apiKey: "AIzaSyCtTP0ETXHJOo15_kAIAOjShm_cxo7_FoE",
@@ -27,19 +19,19 @@ const firebaseConfig: FireBaseConfig = {
   appId: "1:58190409157:web:4144751306c1297a98afac",
   measurementId: "G-NEFKXBHXXC",
 };
+
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
-
-export const createUserDocument = async (user:any, details:any) => {
+export const createUserDocument = async (user: any, details: any) => {
   if (!user) return;
- 
-if(doc(db,"users",user.uid)){
- try{
-  await setDoc(doc(db,"users",user.uid),details)} 
-catch(error){
-  console.log({error})
-} 
+
+  if (doc(db, "users", user.uid)) {
+    try {
+      await setDoc(doc(db, "users", user.uid), details);
+    } catch (error) {
+      console.log({ error });
+    }
   }
 };
 

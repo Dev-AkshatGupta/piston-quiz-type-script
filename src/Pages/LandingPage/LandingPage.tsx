@@ -37,7 +37,7 @@ const LandingPage = () => {
               shapes makes the automobile your beloved automobile . Then this is
               the place for it to learn all things in fun way.{" "}
             </p>
-            <a href="#question" className="btn  text-2 text-black ">
+            <a href="#question" className="btn  text-2 text-black " >
               let's start Quiz{" "}
             </a>
           </div>
@@ -63,7 +63,7 @@ const LandingPage = () => {
       </section>
       <div className="divider-2"></div>
       <h1 className="text-center" id="questions">
-        Trending <span className="text-accent">Quiz</span>
+        Trending <span className="text-accent" id="question">Quiz</span>
       </h1>
       <section
         className=" flex-center-space-even padding-2 flex-wrap gap"
