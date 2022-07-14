@@ -21,7 +21,8 @@ export const NavigationBar = () => {
         </a>
       </div>
       <div className="navigation-end-part">
-        {location.pathname === "/authentication" ? (
+        {/* {todo} */}
+        {/* {location.pathname === "/authentication" ? (
           <button className="btn btn-outline-pri" onClick={() => navigate("/")}>
             Home
           </button>
@@ -32,7 +33,7 @@ export const NavigationBar = () => {
           >
             Login
           </button>
-        )}
+        )} */}
         
       </div>
     </nav>
